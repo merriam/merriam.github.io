@@ -1,0 +1,518 @@
+ABOUT THIS TALK
+---------------
+
+Charles Merriam
+phone:  408.368.6050
+email:  charles.merriam@gmail.com
+blog:  charlesmerriam.com/blog
+slides and notes:   charlesmerriam.com/talk
+
+Yes, you can have this talk given at your company.  
+Send me email and we'll talk.
+
+BUZZWORD COMPLIANCE
+-------------------
+- the talk will be rapidly covering a lot of buzzwords.  
+- I am aiming for providing useful information in the time alloted
+- I hope to provide some framework for what is available, not details.
+
+LEARNING PYTHON
+---------------
+
+Key Points:  Keep exploring, even when within a project.
+
+Richard Gruet's Python Quick Reference Sheet
+http://rgruet.free.fr/PQR25/PQR2.5.html
+- Great reference guide to the language and syntax
+- Online version includes links to most of the documentation
+- Read once, and then keep a link to it open
+
+Bruce Eckel's Why I Love Python Presentation
+http://www.mindview.net/Books/Python/ThinkingInPython.html
+- A powerpoint of why he loves Python
+- Compares philosophy with other languages
+- Mostly using cartoons
+
+Python Tutorial
+http://docs.python.org/tut/
+- Guido van Rossum's basic tutorial
+- Walks through syntax of Python using code examples and text.
+- Covers the language and a brief tour of the standard library.
+
+Code Like a Pythonista
+http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
+- Covers the Zen of Python, tricks, and idioms
+- Many useful idioms in Python take some practice to get right.
+- A useful guide for those coming to Python from another language.
+
+Dave Kuhlman's Python 201
+http://www.rexx.com/~dkuhlman/python_201/python_201.html
+- A talk like Buzzword Compliance, but different topics
+- Looks at Regular Expressions, Testing, Embedding, Parsing and GUIs.
+
+AwareTek Tutorials Page
+http://www.awaretek.com/tutorials.html
+- Contains hundreds of tutorials categorized by subject matter
+- Fast way to get more information on some particular area
+- Not everything is best or relevant, but everything is here
+
+Advanced Python (or Understanding Python)
+http://www.charlesmerriam.com/blog/?p=48
+- Video explains how namespaces are built at runtime
+- Goes into iterators, decorators, and metaclasses
+- Covers both the advanced topics and underlying simplicity
+
+Python Challenge
+http://www.pythonchallenge.com/
+- Puzzles for Python Programmers; you write code
+- Becomes 'guess the buzzword' eventually.
+
+WingWare IDE
+http://wingware.com/
+- A well recommened closed-source Python IDE
+- There is a minimal free version
+
+Plugins exist for GEdit, Emacs, Vi, Eclipse, and everthing else
+- Google is your friend
+
+Python Debugger
+http://docs.python.org/lib/module-pdb.html
+- A module in the standard library for debugging
+- Your IDE may give you a better interface
+
+PyChecker
+http://pychecker.sourceforge.net/
+- A light, "lint" tool for Python
+- Can find some common errors 
+
+
+LIST COMPREHENSIONS
+-------------------
+Erratta:  Yes, it's list comprehensions not list contexts.  Mea culpa.
+- Nothing magical, this is just a shorter way of writing common 
+  idioms we all have written a million times.
+- Python often makes this code that unrolls.
+
+Python Tutorial on List Comprehensions
+http://docs.python.org/tut/node7.html#SECTION007140000000000000000
+- walks through a few examples
+
+After a week, you will never do without them.
+
+For extra fun points:
+- list comprehensions work on a list
+- list comprehensions use a list
+- so, list co   mprehensions can be nested.
+- so you too can make unreadable code
+
+
+EXECUTING MODULES
+-----------------
+- System remembers which classes and modules have been executed.
+- .PYC files are simply tokenizers to speed loading.  They don't pre-execute.
+- The "def func():" statement places an entry func into the local namespace.
+- The namespace is just a dictionary (dict).
+- Function names are just variables like any other.  
+
+
+Advanced Python (or Understanding Python) Video (again)ggg
+http://video.google.com/videoplay?docid=7760178035196894549&q=engedu&hl=en#4m15s
+http://video.google.com/videoplay?docid=7760178035196894549&q=engedu&hl=en#8m45s
+- The first section, starting at 4:15, talks about Python's execution 
+  in namespaces
+- The second section, starting at 8:45, walks through an equivalent example
+
+
+DECORATORS
+----------
+-- You write a decorator that does something, then calls your function.
+-- This is just another unrolling trick:
+    @trace
+    def my_func():
+      print "Hello"
+      
+   unrolls to:
+    def my_func():
+      print "Hello"
+    my_func = trace(my_func)
+
+-- Best when the new functinality isn't the same as the decorated class, making
+   a clean and cohesive break.  Don't do the Java file types thing.
+-- Syntax to write is a bit of boilerplate without @decorator
+
+
+Michelle Simionato's Decorator Decorator
+http://www.phyast.pitt.edu/~micheles/python/documentation.html
+- Provides good syntax for writing decorators
+- Correctly identifies name and number of arguments of decorated function
+- You will never write a decorator without this package again.
+
+David Mertz's Decorator Tutorial
+http://www-128.ibm.com/developerworks/linux/library/l-cpdecor.html?ca=drs-#resources
+- A good walk through of Decorators and pitfalls
+- Introduces Michelle Simionato's Decorator Decorator
+
+
+METACLASSES
+-----------
+- Mechanically, the 'type' object is a metaclass.
+- You can write your own metaclass to override how the dictionary is done.
+- You can add in new name swizzling, make Aspect oriented programming 
+  hooks, change caching and persistence.
+- Changes Python.  Not sure what a line of code does.
+- May confuse debuggers and other libraries.
+- Should be a project level or company level decision.  Hang a rogue 
+  programmer by the toes until they relent.
+
+
+David Mertz's Metaclass Tutorial
+http://www.ibm.com/developerworks/linux/library/l-pymeta.html
+http://www.ibm.com/developerworks/linux/library/l-pymeta2/
+http://www.ibm.com/developerworks/linux/library/l-pymeta3.html
+- A long overview of metaclasses, more than you might want to know.
+- Very few uses for metaclasses
+
+
+UNICODE
+-------
+- Everything is represented.  Umlat's, glyphs, weird directions, different 
+  widths. English, French, (Hebrew's right to left with a different 
+  alphabet).  Sanscrit.  Klingon.  Elvish. 
+- Old programmers are used to being able to plan on character sizes, 
+  directions for layout, uniqueness, being able to recognize puncuation, 
+  use string comparisons, and the like
+- 
+- Someone said that no one over 30 will grok Unicode.  
+- 
+We need to live with it and its extra complexity.  It's the default 
+  string come version 3.0
+- Python provides good Unicode support, including in the codecs class.
+- Even so, programs become less reliable.  Add some test cases entering
+  unexpected odd unicode characters.
+- Oddly, there are no English language videos dedicated to Unicode.
+
+Advanced Python (or Understanding Python) Video (again)
+http://video.google.com/videoplay?docid=7760178035196894549&q=engedu&hl=en#1h4m32s
+- About 10 minutes on Pyton 2.x unicode
+- Takes the "use UTF-8; don't mix ASCII & Unicode" route
+
+Wikipedia
+http://en.wikipedia.org/wiki/Unicode
+- Some general Unicode information
+- Note that even the 'talk' page has 70 entries
+- Primary Wikipedia unicode article is in Russian.
+
+Unicode Consortium
+http://www.unicode.org/
+- Another take on Unicode
+
+
+PYTHON 3000
+-----------
+- Notice that many features will be of controversal value.
+- Problems like the truncating 'L' from longs cause code to
+  be read.
+- 2to3 tool aids conversion.
+
+Upcoming Features of Python 3000
+http://docs.python.org/dev/3.0/whatsnew/3.0.html
+- Feature list of upcomming changes
+- Documentation is still evolving
+
+Download Latest Version (3.02a today)
+http://www.python.org/download/releases/3.0/
+- It's starting to gel.
+
+LIBRARIES
+---------
+Python 3D Software Colleciton
+http://www.vrplumber.com/py3d.py
+- A list of various 3D packages and games in Python
+- Good starting place with too few reviews
+
+
+PYTHON IMAGING LIBRARY
+----------------------
+- I verified with PythonWare that the free versio is the same as 
+  one gets with commercial support
+- Last updated in December 2006, releases now about once per year.
+- Not in the Python Standard Library.  Comes with a slightly
+  different (BSD-style) license.
+
+The PIL by Pythonware
+http://www.pythonware.com/products/pil/
+Download at http://www.pythonware.com/products/pil/#pil116
+Tutorial at http://www.pythonware.com/library/pil/handbook/introduction.htm
+Handbook at http://www.pythonware.com/library/pil/handbook/index.htm
+- The tutorial should be sufficient documentation for most users.  It's about a page or so.
+- The handbook is the complete documentation
+
+
+
+
+PYGAME
+------
+
+- Complete but small 2D game engine with drawing, 
+  sounds, joysticks, sprites, etc. 
+- Works on all sorts of smaller devices.
+- Last release was August, 2005
+
+The main site
+http://www.pygame.org
+- This has samples, tutorials, and all documentation
+
+"Beginning Game Development with Python and Pygame:  
+From Novice to Professional", 2007
+http://www.amazon.com/gp/product/1590598725
+
+SOYA 3D
+-------
+- Includes graphics, sound, physics, and networking
+- Pyrex is a Python variant with C Datatypes
+- Assembled on many libraries.
+- Only about a dozen games using either fork
+
+The main site
+http://home.gna.org/oomadness/en/soya3d/index.html
+
+PySoy, The spin-off
+http://www.pysoy.org 
+http://www.soya3d.org/
+- FAQ recommends against its use yet
+
+
+Python OGRE
+-----------
+- Note that Python Ogre was orignally named PyOgre when it was a simple
+  Python wrapper to OGRE.   This causes a few documentation and forum 
+  glitches.  To find good answers, you may need to check three forums:
+  Python-OGRE, PyOgre, and the main OGRE forums.
+- OGRE Handles scenes, lighting, object placement.  Not game mechanics.
+- Py++ is another wrapping engine.  Handles API changes quickly.
+- C++ version of OGRE is the basis for several commercial games and 
+  many open source games.
+
+
+The main site
+http://python-ogre.org/
+
+The main OGRE site
+http://www.ogre3d.org/
+
+The Two Wikis
+http://wiki.python-ogre.org/index.php/Main_Page
+http://www.ogre3d.org/wiki/index.php/PyOgre
+
+
+
+Web Application Frameworks
+--------------------------
+Note that language has shifted over time.
+In the 1980's these were called "Database Backed Websites"
+In the 1990's these were called "Application Servers",
+then "Web Application Servers", and now they are
+called "Web Application Frameworks"
+
+Phil and Alex's Guide to Web Publishing
+http://philip.greenspun.com/panda/
+http://www.amazon.com/Philip-Alexs-Guide-Web-Publishing/dp/1558605347
+The cover image for this section is from a very early guide 
+to web publshing.  Phil Greenspun wrote this coffee table book full of
+photos, which also showed how to build a solid database backed web site
+using TCL and Oracle.
+
+Note the huge number of components.  Each component is a specialty
+in its own right.
+
+Overview of Web Application Frameworks
+http://en.wikipedia.org/wiki/Web_application_framework
+
+Comparison of Web Application Frameworks Across Languages
+http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks
+
+Comparison by James Cooley
+http://james.cooley.ie/2007/03/05/django_turbogears_rails_and_the_feature_curve.html
+- Written back in March, 2007
+- Short comparison of frameworks, along with Ruby on Rails
+- Basically recommends Django when you control the environment and
+  either TurboGears or Pylons when you are integrating.
+
+http://tinyurl.com/2v4p2a
+- Another comparison Written in June, 2007
+- Recommends Django for smaller projects
+
+Zope
+----
+Wikipedia Overview
+http://en.wikipedia.org/wiki/Zope
+
+Main Site
+http://www.zope.org/
+- note that zope.com is a for profit company providing hosting, consulting...
+
+Code snippets/cookbook site
+http://www.zopelabs.com/ 
+
+The Wiki pages
+http://wiki.zope.org/WikiZopeOrg
+- Note the major disparate sets of Zope 2 and Zope 3 pages
+
+Books
+Too many to mention, but all but two are five years old.
+
+  
+Django
+------
+- MVC language is "Model-Template-View"
+- The 'D' is silent
+
+Wikipedia Overview
+http://en.wikipedia.org/wiki/Django_(web_framework)
+
+Main Site
+http://www.djangoproject.com/
+
+"The Definitive Guide to Django: Web Development Done Right", December 2007
+http://www.amazon.com/Definitive-Guide-Django-Development-Right/dp/1590597257/
+
+"Professional Python Frameworks: Web 2.0 Programming with Django and 
+Turbogears (Programmer to Programmer)", 2007
+http://www.amazon.com/Professional-Python-Frameworks-Programming-Turbogears/dp/0470138092
+
+"Sams Teach Yourself Django in 24 Hours", expected March 2008
+http://www.amazon.com/Sams-Teach-Yourself-Django-Hours/dp/067232959X
+
+
+TurboGears
+----------
+Wikipedia Overview
+http://en.wikipedia.org/wiki/TurboGears
+
+Main Site
+http://turbogears.org/
+
+"Rapid Web Applications with TurboGears: Using Python to Create 
+Ajax-Powered Sites", November 2006
+http://www.amazon.com/Rapid-Web-Applications-TurboGears-Ajax-Powered/dp/0132433885
+Yes, there is a Kindle edition
+
+"Professional Python Frameworks: Web 2.0 Programming with Django and 
+Turbogears (Programmer to Programmer)", 2007
+http://www.amazon.com/Professional-Python-Frameworks-Programming-Turbogears/dp/0470138092
+
+
+Pylons
+------
+- So Flexible, I can't even tell you what modules are used
+- Python Paste is a seperate project for assembling web application servers
+- Many felt I was unfairly harsh about the lack of form of Pylons applications.
+- Audience says Pylons will apparently be used for a later version of TurboGears.
+
+Wikipedia Overview
+http://en.wikipedia.org/wiki/Pylons
+
+Main Site
+http://pylonshq.com/
+
+Walkthrough of building first Pylons site
+http://www.rexx.com/~dkuhlman/pylons_quick_site.html
+
+"The Definitive Guide to Pylons (Definitive Guide)", expected April 2008
+http://www.amazon.com/Definitive-Guide-Pylons/dp/1590599349
+
+Content Management Systems
+--------------------------
+- Additional compenents tend to include workflow, more user 
+  management, versioning, and sample testing.
+- Used for those who need to keep a web site running.
+
+
+Plone
+-----
+Wikipedia Overview
+http://en.wikipedia.org/wiki/Plone_(content_management_system)
+
+Main Site
+http://plone.org/
+
+The Plone Network advocacy site
+http://plone.net/
+- referal to sites using Plone, case studies, etc.
+- referal to/from Plone consultants and hosting providers
+
+San Francisco Plone Users Group (Plone Lounge)
+http://www.plonelounge.com/
+
+Too many books to list.
+
+Conclusion
+----------
+
+The Cheese Shop
+http://pypi.python.org
+- Global list of Python projects and modules
+- Used to be called the "Cheese Shop" after the skit.
+
+CheeseRater
+http://www.cheeserater.com  
+- Attempts to rate packages
+
+================ PHOTO REFERENCES
+
+Snakes on my head by O Pish Post
+http://flickr.com/photos/opishposh/221395779/
+Creative Commons
+
+Running Away by Ozyman
+http://flickr.com/photos/ozyman/148793655/
+Creative Commons
+
+Meta Mini Moo by Darkmatter
+http://flickr.com/photos/cdm/1410539606/
+Creative Commons
+
+Jagwangsa 3000 Buddha by Bebouchard
+http://flickr.com/photos/bebouchard/404576063/
+
+Unicode Eyechart in Firefox 2 by sillygwalio
+http://flickr.com/photos/sillygwailo/543388337/
+
+Vitamin E Redux by Selva
+http://flickr.com/photos/selva/7737130/
+
+Carry on up the Pylon by Arkadyevna
+http://flickr.com/photos/arkadyevna/246047088/
+
+Trains and Messes by Martin Kelley
+http://flickr.com/photos/martin_kelley/408474778/
+
+My Eye by OrangeAcid
+http://flickr.com/photos/orangeacid/234358923/
+
+Code Washing by Ezu
+http://flickr.com/photos/ezu/277341190/
+
+My New Mupal Tools by animaux
+http://flickr.com/photos/animaux/103725084/
+
+A "Few" Balloons by Mortimer
+http://flickr.com/photos/mortimer/127194972/
+
+Finished Quilt by Annette Pedrosian
+http://flickr.com/photos/annettepedrosian/437261669/
+
+Library by Swenwerk
+http://flickr.com/photos/svenwerk/248594239/
+
+behind... by Thomas23
+http://flickr.com/photos/livenow/185186715/
+
+Phil & Alex by Phil Greenspun
+
+Lots of Plone Folk by MrTopF
+http://flickr.com/photos/mrtopf/1543890810/
+
+Dark Side of the Moon by Callumalden
+http://flickr.com/photos/callumalden/48953166/
+

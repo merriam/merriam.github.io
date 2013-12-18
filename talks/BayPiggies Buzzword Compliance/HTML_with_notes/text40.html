@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+  <meta HTTP-EQUIV=CONTENT-TYPE CONTENT="text/html; charset=utf-8">
+  <title>Slide 41</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000CC" vlink="#000080" alink="#0000CC">
+<center>
+<a href="text0.html">First page</a> <a href="text39.html">Back</a> <a href="text41.html">Continue</a> <a href="text122.html">Last page</a> <a href="Buzzword%20Compliance%20with%20notes.html">Overview</a> <a href="img40.html">Graphics</a></center><br>
+<h1><font color="#999999">Metaclasses</font></h1>
+<ul><li><h2><font color="#FFB515">class</font> Midnight_Hack(<font color="#C90016">type</font>):</h2></li>
+<li><h2>  <font color="#FFB515">def</font> <font color="#C90016">__new__</font>(cls, name, bases, ats):</h2></li>
+<li><h2>    <font color="#FFB515">for</font> a,v <font color="#FFB515">in</font> ats.items():</h2></li>
+<li><h2>          # post-process ats...</h2></li>
+<li><h2>    <font color="#FFB515">return</font> <font color="#C90016">type</font>.<font color="#C90016">__new__</font>(cls, name,                            bases,ats)</h2></li>
+<li><h2><font color="#FFB515">class</font> Innocent_PEP_3115(P3000):</h2></li>
+<li><h2>    <font color="#C90016">__metaclass__</font> = Midnight_Hack</h2></li>
+</ul></body>
+</html>

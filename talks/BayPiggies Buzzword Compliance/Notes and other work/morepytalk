@@ -1,0 +1,344 @@
+Introduction (2)
+
+Python Language  (
+
+
+
+
+Web Frameworks (6)
+Content Management Systems (2)
+Summary (?)
+
+
+Introduction
+========================================
+BuzzWord Compliance
+
+1.  Three Slides Per Buzzword
+2.  High Signal to Noise
+3.  Breadth over Depth
+
+- the talk will be rapidly covering a lot of buzzwords.  
+- There are three sets of buzzwords, with three slides per buzzword.  
+- Except when there is a reference slide.
+- I am aiming for providing useful information in the time alloted
+- I hope to provide some framework for what is available, not details
+
+[Picture:  Three sets of buzzwords by groups.  Talk about three sets (Python Itself, Libraries, Frameworks)]
+
+
+Learning Python
+1.  The Quick Reference Sheet
+2.  Python Tutorial
+3.  Python Challenge
+
+[Picture:  Cycle with Read/Watch/Code projects]
+- This slide also has a bunch of reference location stuff...
+- 
+
+
+
+
+Python Language Buzzwords
+=========================
+
+List Contexts
+-------------
+1.  Cool idiom of Python
+2.  Enables Concisness
+3.  Unrolls into simple loops
+
+-- This feature makes Map and Filter redundant.
+-- Enables consisness, so that the programmer writes less, uses less boilerplate, and sees more on the screen.
+--- It is the way of Python
+-- Nothing magical, this is just a shorter way of writing common idioms we all have written a million times
+
+[Picture to unroll through:  zipcodes = [person.address.zipcode for person in myListOfPeople where BillingAddress == ShippingAddress]]
+
+
+Executing Modules
+-----------------
+1.   Import runs code, at least once
+2.   Def is just a statement
+3.   Use to precalculate stuff.
+
+-- system knows what was executed.  Why singleton's are easy..
+-- don't confuse with .pyc precompiled files; still runtime hit
+-- You can manipulate your own dictionary.
+
+[Example, precomputing a lookup table for CRC]
+
+Decorators
+----------
+1.   Wraps methods with new functionality
+2.   Useful for logging, caching, security, and resource management
+3.   Clean syntax to use
+
+-- You write a decorator that does something, then calls your function.
+-- For example, you could cache results, check a security level, or whatever
+-- Best when the new functinality isn't the same as the decorated class, making
+a clean and cohesive break.  Don't do the Java file types thing.
+-- Syntax to write is a bit of boilerplate.  Usage is clean.
+-- Keeps code understandable and cohesive
+
+[Example, a cache routine.   Following the setup.]
+
+Metaclasses
+-----------
+1.   The superclass 'type' of class objects
+2.   Changes functionality of Python
+3.   Adds complexity to entire product
+
+-- Mechanically, the 'type' object is a metaclass.
+-- You can write your own metaclass to override how the dictionary is done.
+-- You can add in new name swizzling, make Aspect oriented programming hooks, change caching and persistence.
+-- Changes Python.  Not sure what a line of code does.
+-- May confuse debuggers and other libraries.
+-- Should be a project level or company level decision.  Hang a rogue programmer by the toes until they relent.
+
+[Example, a simple logging class]
+
+Python 3000
+-----------
+1.  More incremental than revolutionary
+2.  Unicode becomes default string type
+3.  Available in Early Alpha
+
+-- May break existing code,
+---- but probably won't
+---- 2to3 tool works well.
+---- Finally, a way of documenting return values and parameters
+---- "old classes" finally die, as well as other obviated features
+-- Do not fear it.  It does not bite.
+
+
+Unicode
+-------
+1.  Represents *every* human language
+2.  Breaks old ascii rules.
+3.  Designed by Committee
+
+- Everything.  Umlat's, glyphs, weird directions, different widths. English, French, (Hebrew's right to left with a different alphabet).  Sanscrit.  Klingon.  Elvish. 
+- Old programmers are used to being able to plan on character sizes, directions for layout, uniqueness, being able to recognize puncuation, use string comparisons, and the like
+- Standards comittees with high paying members.  Official and unofficial sources.  Meetings and conference calls.  
+- Someone said that no one over 30 will grok Unicode.  We need to live with it and its extra complexity.  It's the default string come version 3.0
+
+
+
+
+
+Homepage:
+Book count:
+
+Py++?
+Boost?
+Py2Exe
+Pyscho?
+Pyrex?
+IronPython?
+
+
+GAMES & GRAPHICS  (4)
+========
+
+Python Imaging Library (PIL)
+----------------------------
+1.  Reads and Writes Image Formats
+2.  Rock solid and static
+3.  Example of "Most Batteries Included"
+
+- Handles about 25 image file types including JPEG, TIFF, GIF, BMP, etc.
+- Last updated in 200?
+- Not in the Python Standard Library.  Comes with a slightly different (BSD-style) license.
+
+
+PyGame
+------
+1.  Complete 2D Game Engine
+2.  Aggresively Cross Platform
+3.  Weekly contests
+
+Complete but small 2D game engine with drawing, sounds, joysticks, sprites, etc. 
+Works on all sorts of smaller devices.
+Easy access to game programming with hundreds made
+
+Book count: 1
+
+Soya 3D
+----
+1.  Full 3D Game Engine
+2.  Uses Pyrex to link some modules
+3.  Slow and Forked to PySoy
+Includes graphics, sound, physics, and networking
+Pyrex is a Python variant with C Datatypes
+Assembled on many libraries.
+Only about a dozen games using either fork
+
+Book count:  0
+Homepage (Soya3d):  http://home.gna.org/oomadness/en/soya3d/
+Homepage (PySoy):   http://www.pysoy.org/ 
+
+Python-Ogre
+-----------
+1. Scene description language
+2. Wrapper to C++ implementation
+3. OGRE is popular
+
+
+Handles scenes, lighting, object placement.  Not game mechanics.
+As often the case with performance normal code, just surfs off the more popular C++ version.  
+The same happens with PyODE (Open Dynamics Physics Engine).
+OGRE is Object-oriented Graphics Rendering Engine
+C++ version is the basis for several commercial games and many open source games.
+
+Book count: 1
+Homepage (Python-Ogre):  http://www.ogre3d.org/wiki/index.php/Python-Ogre
+Homepage (Ogre):  http://www.ogre3d.org/
+
+
+Linking and Storing
+===================
+
+
+
+Web Application Servers (5)
+===========================================
+Web Application Servers
+-----------------------
+1.   Deploy Web Applications
+2.   Pile of Parts
+3.   Dozens of choices
+
+- Were called 'Database Backed Web Sites'
+- What parts?  Web server, database, object to relational mapping and persistence, templating language, scripting language, user logins, security, url rewriting, caching, internationalization, and now CSS, AJAX and JavaScript.
+- Really just a few which we will cover.
+
+[Picture:  bolted together pieces of the webserver components]
+- That's a lot stuff. 
+- Most of components are specialities in their own right.
+
+Zope (Web Application Server)
+----
+1.  Scalable since 1995
+2.  Basis for Plone, Silva, and others
+3.  Update through the web
+
+Homepage:  http://www.zope.org
+Book count:  Dozens, 2 since 2005
+
+
+Django (Web Application Server)
+------
+1.  Emphasis DRY (Don't Repeat Yourself)
+2.  Interactive console
+3.  Unfortunate wording choices, e.g, MVC
+
+- avoids boilerplate code and code generation
+- No GUIs; built for and by programmers.
+- MVC language is "Model-Template-View"
+
+Components:  Object-relational mapper, light-weight web server, serialization and validation, 
+Homepage:  http://www.djangoproject.com/
+Book count:  3 since 2005
+
+
+TurboGears
+Web Application Server
+----------
+1.  Assembled from other packages
+2.  More screencasts
+3.  Still fairly young
+
+General emphasis on trying to look mature and full featured.  
+Uses CherryPy for a web server, SQLObject or SQLAlchemy for its object-relational mapper, MochiKit for Javascript/AJAX.
+Various compatibility and version skew problems.
+Homepage:  http://www.turbogears.com
+Book count: 2 since 2005
+
+
+Pylons
+Web Application Server
+----------------------
+1.  Reimplements Ruby on Rails
+2.  Flexibly assembled
+3.  Uses Python Paste
+
+- Lots of code generation, but without Rail's elan
+- So Flexible, I can't even tell you what modules are used
+- Python Paste is a seperate project for assembling web application servers
+
+Homepage:  http://pylonshq.com/
+Bookcount:  0, but 1 coming.
+
+
+Content Mangement Systems (2)
+
+Content Management Systems
+--------------------------
+1.  Web site publishing
+2.  Piles of Parts
+3.  One serious choice
+
+- Collaborative website maintenance with lots of users, workflows, content, and management
+- Usually built on a Web Application Server, often turnkey GUIs.
+- Use Plone.  
+
+
+Plone
+Content Management System
+(Users, Workflow, Permissions, Document publishing)
+-----
+1.  Built on Zope
+2.  Strong support base
+3.  Archetypes and extendable content types
+
+
+Homepage:  http;//www.plone.org
+Book count:  Dozens, 6 since 2005
+
+
+
+
+
+Data Formats in Python
+======================
+1.  Use Python code or Pickle where trusted
+2.  JSON, YAML, or XML
+3.  Or create your own syntax with Ply
+
+- Python code itself works for a rich data format.
+-- Gets by those issues where the data formats gets complex
+-- Use only where you trust the data as much as your code
+
+- JSON, YAML, and XML are structured dataformat
+-- JSON and YAML are human readable and far simpler than XML
+-- XML works with lots of domain language specifications
+-- Expect to write a lot of boring code
+
+--- FYI, Use python-cjson for JSON, PyYaml for YAML, PyXML for XML
+[Picture:  Address Fromat as Python code, JSON, YAML, and XML.]
+
+
+
+Ply
+------------
+1.  Implements Lex & Yacc (Flex/Bison)
+2.  Makes custom languages or command processors
+3.  Academic origins and limitations
+
+-- Nice syntax for writing arbitrary grammers
+-- Uses regular expressions for lexing tokens (making words)
+-- Limitations include parsing only from a in memory string.
+
+
+[Picture:   A simple command parser]
+
+
+SUMMARY
+=======
+1.  Looked at a lot of packages, but just some
+2.  Wikipedia is surprisingly useful
+3.  Can be hard to find real adoption
+
+
+
